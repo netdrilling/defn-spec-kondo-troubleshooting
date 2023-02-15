@@ -1,0 +1,14 @@
+{:paths     ["resources" "src/clojure/main"]
+ :deps      {;; Clojure's Own
+             org.clojure/clojure         {:mvn/version "1.11.1"}
+             org.clojure/tools.namespace {:mvn/version "1.2.0"}
+             ;; Spec Integration
+             orchestra/orchestra         {:mvn/version "2021.01.01-1"}
+             dev.weavejester/medley      {:mvn/version "1.5.0"}}
+ :aliases {:dev {:extra-paths ["src/clojure/dev"]
+                 :extra-deps {nrepl/nrepl {:mvn/version "1.1.0-alpha1"}
+                              cider/cider-nrepl {:mvn/version "0.30.0"}
+                              refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}
+                              mx.cider/tools.deps.enrich-classpath {:mvn/version "1.9.0"}}
+                 :main-opts  ["-m" "nrepl.cmdline" "--middleware"
+                              "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}}}
